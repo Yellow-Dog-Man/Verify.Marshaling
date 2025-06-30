@@ -33,6 +33,8 @@ public static class MarshalingConverter
 {
     public static ConversionResult Convert(Type target, IReadOnlyDictionary<String, Object> context)
     {
+        //TODO: Should this be placed in the metadata, the first parameter?
+        // See: https://github.com/VerifyTests/Verify/blob/main/docs/converter.md that places meta data in the first parameter
         return new ConversionResult(null, "txt", System.Text.Json.JsonSerializer.Serialize(MarshalRecord.From(target)));
     }
 

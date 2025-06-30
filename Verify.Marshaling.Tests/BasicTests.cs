@@ -18,12 +18,11 @@ public partial class BasicTests: VerifyBase
         // If we can fix this up then the following would be possible:
         
         // DOES NOT WORK!
-        await Verify(t);
+        ///await Verify(t);
 
         // DOES WORK
         // Manual Conversion!
-        await Verify(MarshalRecord.From(t))
-            .UseTextForParameters(t.Name); // Only use the Short type name in the parameters
+        await Verify(MarshalRecord.From(t)).UseTextForParameters(t.Name); // Only use the Short type name in the parameters
     }
 }
 

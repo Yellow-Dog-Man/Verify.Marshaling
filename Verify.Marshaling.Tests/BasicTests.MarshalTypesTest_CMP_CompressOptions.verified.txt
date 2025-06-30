@@ -1,1 +1,319 @@
-﻿
+﻿{
+  FieldName: CMP_CompressOptions,
+  Size: 1511,
+  Nested: [
+    {
+      FieldName: size,
+      Size: 4
+    },
+    {
+      FieldName: doPreconditionBRLG,
+      Size: 1,
+      Offset: 4
+    },
+    {
+      FieldName: doDeltaEncodeBRLG,
+      Size: 1,
+      Offset: 5
+    },
+    {
+      FieldName: doSwizzleBRLG,
+      Size: 1,
+      Offset: 6
+    },
+    {
+      FieldName: pageSize,
+      Size: 4,
+      Offset: 7
+    },
+    {
+      FieldName: useRefinementSteps,
+      Size: 1,
+      Offset: 11
+    },
+    {
+      FieldName: refinementSteps,
+      Size: 4,
+      Offset: 12
+    },
+    {
+      FieldName: useChannelWeighting,
+      Size: 1,
+      Offset: 16
+    },
+    {
+      FieldName: weightingRed,
+      Size: 4,
+      Offset: 17
+    },
+    {
+      FieldName: weightingGreen,
+      Size: 4,
+      Offset: 21
+    },
+    {
+      FieldName: weightingBlue,
+      Size: 4,
+      Offset: 25
+    },
+    {
+      FieldName: useAdaptiveWeighting,
+      Size: 1,
+      Offset: 29
+    },
+    {
+      FieldName: DXT1UseAlpha,
+      Size: 1,
+      Offset: 30
+    },
+    {
+      FieldName: useGPUDecompress,
+      Size: 1,
+      Offset: 31
+    },
+    {
+      FieldName: useCGCompress,
+      Size: 1,
+      Offset: 32
+    },
+    {
+      FieldName: alphaThreshold,
+      Size: 1,
+      Offset: 33
+    },
+    {
+      FieldName: disableMultiThreading,
+      Size: 1,
+      Offset: 34
+    },
+    {
+      FieldName: compressionSpeed,
+      Size: 4,
+      Offset: 35
+    },
+    {
+      FieldName: GPUDecode,
+      Size: 4,
+      Offset: 39
+    },
+    {
+      FieldName: encodeWidth,
+      Size: 4,
+      Offset: 43
+    },
+    {
+      FieldName: numThreads,
+      Size: 4,
+      Offset: 47
+    },
+    {
+      FieldName: quality,
+      Size: 4,
+      Offset: 51
+    },
+    {
+      FieldName: restrictColour,
+      Size: 1,
+      Offset: 55
+    },
+    {
+      FieldName: restrictAlpha,
+      Size: 1,
+      Offset: 56
+    },
+    {
+      FieldName: modeMask,
+      Size: 4,
+      Offset: 57
+    },
+    {
+      FieldName: numCmds,
+      Size: 4,
+      Offset: 61
+    },
+    {
+      FieldName: AMD_CMD,
+      Size: 960,
+      Offset: 65,
+      Count: 20,
+      Nested: [
+        {
+          FieldName: strCommand,
+          Size: 32
+        },
+        {
+          FieldName: strParameter,
+          Size: 16,
+          Offset: 32
+        }
+      ]
+    },
+    {
+      FieldName: inputDefog,
+      Size: 4,
+      Offset: 1025
+    },
+    {
+      FieldName: inputExposure,
+      Size: 4,
+      Offset: 1029
+    },
+    {
+      FieldName: inputKneeLow,
+      Size: 4,
+      Offset: 1033
+    },
+    {
+      FieldName: inputKneeHigh,
+      Size: 4,
+      Offset: 1037
+    },
+    {
+      FieldName: inputGamma,
+      Size: 4,
+      Offset: 1041
+    },
+    {
+      FieldName: inputFilterGamma,
+      Size: 4,
+      Offset: 1045
+    },
+    {
+      FieldName: cmpLevel,
+      Size: 4,
+      Offset: 1049
+    },
+    {
+      FieldName: posBits,
+      Size: 4,
+      Offset: 1053
+    },
+    {
+      FieldName: texCbits,
+      Size: 4,
+      Offset: 1057
+    },
+    {
+      FieldName: normalBits,
+      Size: 4,
+      Offset: 1061
+    },
+    {
+      FieldName: genericBits,
+      Size: 4,
+      Offset: 1065
+    },
+    {
+      FieldName: vCacheSize,
+      Size: 4,
+      Offset: 1069
+    },
+    {
+      FieldName: vCacheFIFOsize,
+      Size: 4,
+      Offset: 1073
+    },
+    {
+      FieldName: overdrawACMR,
+      Size: 4,
+      Offset: 1077
+    },
+    {
+      FieldName: simplifyLOD,
+      Size: 4,
+      Offset: 1081
+    },
+    {
+      FieldName: vertexFetch,
+      Size: 1,
+      Offset: 1085
+    },
+    {
+      FieldName: sourceFormat,
+      Size: 4,
+      Offset: 1086
+    },
+    {
+      FieldName: destFormat,
+      Size: 4,
+      Offset: 1090
+    },
+    {
+      FieldName: format_support_hostEncoder,
+      Size: 1,
+      Offset: 1094
+    },
+    {
+      FieldName: printInfoStr,
+      Size: 8,
+      Offset: 1095
+    },
+    {
+      FieldName: getPerfStats,
+      Size: 1,
+      Offset: 1103
+    },
+    {
+      FieldName: KernelPerformanceStats,
+      Size: 12,
+      Offset: 1104,
+      Nested: [
+        {
+          FieldName: computeShaderElapsedMS,
+          Size: 4
+        },
+        {
+          FieldName: numBlocks,
+          Size: 4,
+          Offset: 4
+        },
+        {
+          FieldName: cmpMTxPerSec,
+          Size: 4,
+          Offset: 8
+        }
+      ]
+    },
+    {
+      FieldName: getDeviceInfo,
+      Size: 1,
+      Offset: 1116
+    },
+    {
+      FieldName: KernelDeviceInfo,
+      Size: 388,
+      Offset: 1117,
+      Nested: [
+        {
+          FieldName: deviceName,
+          Size: 256
+        },
+        {
+          FieldName: version,
+          Size: 128,
+          Offset: 256
+        },
+        {
+          FieldName: maxUCores,
+          Size: 4,
+          Offset: 384
+        }
+      ]
+    },
+    {
+      FieldName: genGPUMipMaps,
+      Size: 1,
+      Offset: 1505
+    },
+    {
+      FieldName: useSRGBFrames,
+      Size: 1,
+      Offset: 1506
+    },
+    {
+      FieldName: miplevels,
+      Size: 4,
+      Offset: 1507
+    }
+  ]
+}

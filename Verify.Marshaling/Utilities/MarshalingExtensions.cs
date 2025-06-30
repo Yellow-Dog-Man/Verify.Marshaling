@@ -2,7 +2,7 @@
 
 namespace Verify.Marshaling.Utilities;
 
-internal static class MarshalAsAttributeExtensions
+internal static class MarshalingExtensions
 {
     internal static int? GetSize(this MarshalAsAttribute attribute)
     {
@@ -60,7 +60,6 @@ internal static class MarshalAsAttributeExtensions
             case UnmanagedType.SysUInt:
                 return UIntPtr.Size;
             case UnmanagedType.ByValTStr:
-            case UnmanagedType.LPStr:
                 return 1;
         }
         throw new NotImplementedException($"{unmanagedType} is not supported or unknown.");

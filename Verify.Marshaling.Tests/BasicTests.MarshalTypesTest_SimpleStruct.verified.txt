@@ -1,1 +1,15 @@
-﻿
+﻿{
+  FieldName: SimpleStruct,
+  Size: 8,
+  Nested: [
+    {
+      FieldName: Test,
+      Size: 4
+    },
+    {
+      FieldName: TestF,
+      Size: 4,
+      Offset: 4
+    }
+  ]
+}
