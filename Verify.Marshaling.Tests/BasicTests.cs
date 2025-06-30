@@ -16,10 +16,14 @@ public partial class BasicTests: VerifyBase
         // A converter is registered in VerifyMarshaling.cs, but it is blocked by:
         // https://github.com/VerifyTests/Verify/issues/1475
         // If we can fix this up then the following would be possible:
-        // await Verify(t);
+        
+        // DOES NOT WORK!
+        await Verify(t);
 
-        // Until then, we do the conversion manually
-        await Verify(MarshalRecord.From(t)).UseTextForParameters(t.Name);
+        // DOES WORK
+        // Manual Conversion!
+        await Verify(MarshalRecord.From(t))
+            .UseTextForParameters(t.Name); // Only use the Short type name in the parameters
     }
 }
 
