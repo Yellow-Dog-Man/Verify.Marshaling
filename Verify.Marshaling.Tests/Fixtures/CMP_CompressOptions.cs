@@ -28,6 +28,29 @@ public struct AMD_CMD
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 public delegate void CMP_PrintInfoStr([MarshalAs(UnmanagedType.LPStr)] string infoStr);
 
+[StructLayout(LayoutKind.Sequential)]
+public struct KernelPerformanceStats
+{
+    [MarshalAs(UnmanagedType.R4)]
+    public float computeShaderElapsedMS;
+    [MarshalAs(UnmanagedType.U4)]
+    public int numBlocks;
+    [MarshalAs(UnmanagedType.R4)]
+    public float cmpMTxPerSec;
+}
+
+[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+public struct KernelDeviceInfo
+{
+    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+    public string deviceName;
+    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+    public string version;
+
+    [MarshalAs(UnmanagedType.U4)]
+    public int maxUCores;
+}
+
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public class CMP_CompressOptions
 {
@@ -147,4 +170,30 @@ public class CMP_CompressOptions
     public CMP_FORMAT destFormat;
     [MarshalAs(UnmanagedType.U1)]
     public bool format_support_hostEncoder;
+
+    /// <summary>
+    /// We're currently unable to marshal this correctly. See this
+    /// <see href="https://github.com/Yellow-Dog-Man/Compressonator.NET/issues/18">GitHub Issue</see>
+    /// but it must be <see cref="Constants.PRINT_INFO_SIZE"/> in length.
+    /// We do also have a WIP structure to marshal this: <seealso cref="CMP_PrintInfoStr"/>
+    /// </summary>
+    //public CMP_PrintInfoStr printInfoStr;
+    [Obsolete("DO NOT USE see: https://github.com/Yellow-Dog-Man/Compressonator.NET/issues/18")]
+    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 8)]
+    public string printInfoStr;
+
+    [MarshalAs(UnmanagedType.U1)]
+    public bool getPerfStats;
+    [MarshalAs(UnmanagedType.Struct)]
+    public KernelPerformanceStats perfStats;
+    [MarshalAs(UnmanagedType.U1)]
+    public bool getDeviceInfo;
+    [MarshalAs(UnmanagedType.Struct)]
+    public KernelDeviceInfo deviceInfo;
+    [MarshalAs(UnmanagedType.U1)]
+    public bool genGPUMipMaps;
+    [MarshalAs(UnmanagedType.U1)]
+    public bool useSRGBFrames;
+    [MarshalAs(UnmanagedType.I4)]
+    public int miplevels;
 }

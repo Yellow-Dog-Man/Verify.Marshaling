@@ -1,6 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Verify.Marshaling.Tests.Fixtures;
 using Verify.Marshaling.Utilities;
+using System.Linq;
 
 namespace Verify.Marshaling.Tests
 {
@@ -20,6 +22,9 @@ namespace Verify.Marshaling.Tests
         [DataRow(UnmanagedType.I8, 8)]
         [DataRow(UnmanagedType.U8, 8)]
         [DataRow(UnmanagedType.R8, 8)]
+        //[DataRow(UnmanagedType.LPStr, 1)]
+        //[DataRow(UnmanagedType.LPTStr, 1)]
+        [DataRow(UnmanagedType.ByValTStr, 1)]
         [DataTestMethod]
         public void TestUnmanagedTypeSizes(UnmanagedType type, int expectedSize)
         {
@@ -42,8 +47,8 @@ namespace Verify.Marshaling.Tests
         //    case UnmanagedType.SafeArray:
         //        return (GetSize(attribute.ArraySubType)* attribute.SizeConst);
 
-        [DataRow(40, UnmanagedType.ByValTStr, 5)]
-        [DataRow(8, UnmanagedType.ByValTStr, 1)]
+        [DataRow(5, UnmanagedType.ByValTStr, 5)]
+        [DataRow(1, UnmanagedType.ByValTStr, 1)]
         [DataTestMethod]
         public void TestVariableLengthSizes(int expectedSize, UnmanagedType type, int size)
         {
@@ -51,6 +56,18 @@ namespace Verify.Marshaling.Tests
             m.SizeConst = size;
 
             Assert.AreEqual(expectedSize, m.GetSize());
+        }
+
+        [TestMethod]
+        public void TestSpecificFields()
+        {
+            var fields = typeof(CMP_CompressOptions)
+                    .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)
+                    .Where(f => f.Name == "cmdSet");
+            foreach (var f in fields)
+            {
+                Assert.AreEqual(960, MarshalRecord.GetSize(f));
+            }
         }
     }
 }

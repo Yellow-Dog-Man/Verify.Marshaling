@@ -61,7 +61,7 @@ internal static class MarshalAsAttributeExtensions
                 return UIntPtr.Size;
             case UnmanagedType.ByValTStr:
             case UnmanagedType.LPStr:
-                return 8;
+                return 1;
         }
         throw new NotImplementedException($"{unmanagedType} is not supported or unknown.");
     }
