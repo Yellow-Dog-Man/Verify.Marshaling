@@ -62,6 +62,7 @@ internal static class MarshalingExtensions
             case UnmanagedType.ByValTStr:
                 return 1;
         }
+
         throw new NotImplementedException($"{unmanagedType} is not supported or unknown.");
     }
 }

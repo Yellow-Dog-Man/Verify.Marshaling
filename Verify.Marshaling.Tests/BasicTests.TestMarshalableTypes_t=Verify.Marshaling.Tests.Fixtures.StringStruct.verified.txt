@@ -1,0 +1,18 @@
+﻿{
+  FieldName: StringStruct,
+  Size: 60,
+  Nested: [
+    {
+      FieldName: A,
+      Size: 20,
+      Type: String
+    },
+    {
+      FieldName: B,
+      Size: 40,
+      Offset: 20,
+      Type: String
+    }
+  ],
+  Type: struct
+}

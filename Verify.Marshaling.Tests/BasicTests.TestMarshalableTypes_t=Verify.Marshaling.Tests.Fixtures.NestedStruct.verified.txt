@@ -1,0 +1,63 @@
+﻿{
+  FieldName: NestedStruct,
+  Size: 24,
+  Nested: [
+    {
+      FieldName: SimpleStruct,
+      Size: 8,
+      Nested: [
+        {
+          FieldName: Test,
+          Size: 4,
+          Type: Int32
+        },
+        {
+          FieldName: TestF,
+          Size: 4,
+          Offset: 4,
+          Type: Single
+        }
+      ],
+      Type: struct
+    },
+    {
+      FieldName: SimpleStruct,
+      Size: 8,
+      Offset: 8,
+      Nested: [
+        {
+          FieldName: Test,
+          Size: 4,
+          Type: Int32
+        },
+        {
+          FieldName: TestF,
+          Size: 4,
+          Offset: 4,
+          Type: Single
+        }
+      ],
+      Type: struct
+    },
+    {
+      FieldName: SimpleStruct,
+      Size: 8,
+      Offset: 16,
+      Nested: [
+        {
+          FieldName: Test,
+          Size: 4,
+          Type: Int32
+        },
+        {
+          FieldName: TestF,
+          Size: 4,
+          Offset: 4,
+          Type: Single
+        }
+      ],
+      Type: struct
+    }
+  ],
+  Type: struct
+}

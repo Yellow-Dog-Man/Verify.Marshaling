@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.CompilerServices;
 using Verify.Marshaling.Utilities;
 
 namespace VerifyTests;
@@ -22,24 +21,22 @@ public static class VerifyMarshaling
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
 
-        VerifierSettings.RegisterFileConverter<Type>(
-            MarshalingConverter.Convert, 
-            MarshalingConverter.CanConvert);
+        //TODO: we don't actually need to do anything here, but this keeps it in the VerifyTests namespace.
     }
-    
-}
-
-public static class MarshalingConverter
-{
-    public static ConversionResult Convert(Type target, IReadOnlyDictionary<String, Object> context)
+    public static SettingsTask VerifyMemoryLayout(Type t, VerifySettings? settings = null, [CallerFilePath] string sourceFile = "", [CallerMemberName] string memberName = "")
     {
-        //TODO: Should this be placed in the metadata, the first parameter?
-        // See: https://github.com/VerifyTests/Verify/blob/main/docs/converter.md that places meta data in the first parameter
-        return new ConversionResult(null, "txt", System.Text.Json.JsonSerializer.Serialize(MarshalRecord.From(target)));
-    }
+        VerifierSettings.AssignTargetAssembly(t.Assembly); 
 
-    public static bool CanConvert(Type target, IReadOnlyDictionary<String, Object> context)
-    {
-        return (target.GetCustomAttribute<StructLayoutAttribute>() != null);
+        var typeName = Path.GetFileNameWithoutExtension(sourceFile);
+        var pathInfo = new PathInfo();
+
+        if (t.FullName == null)
+            throw new InvalidOperationException("Type must have a full name");
+
+        return new SettingsTask(settings, async settings => {
+            settings.UseParameters(new[] { t });
+            var v = new InnerVerifier(sourceFile,settings, typeName, memberName, new List<string>(){ "t" }, pathInfo);
+            return await v.Verify(MarshalRecord.From(t));
+        });
     }
 }

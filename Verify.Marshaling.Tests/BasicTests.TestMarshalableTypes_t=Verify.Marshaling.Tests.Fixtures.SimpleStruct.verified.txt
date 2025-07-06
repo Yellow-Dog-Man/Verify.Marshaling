@@ -4,12 +4,15 @@
   Nested: [
     {
       FieldName: Test,
-      Size: 4
+      Size: 4,
+      Type: Int32
     },
     {
       FieldName: TestF,
       Size: 4,
-      Offset: 4
+      Offset: 4,
+      Type: Single
     }
-  ]
+  ],
+  Type: struct
 }
