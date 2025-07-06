@@ -25,9 +25,15 @@ public static class VerifyMarshaling
     }
     public static SettingsTask VerifyMemoryLayout(Type t, VerifySettings? settings = null, [CallerFilePath] string sourceFile = "", [CallerMemberName] string memberName = "")
     {
-        VerifierSettings.AssignTargetAssembly(t.Assembly); 
+        // TODO: This feels like a massive hack, but technicallly works quite well. I ran out of energy!
 
-        var typeName = Path.GetFileNameWithoutExtension(sourceFile);
+        VerifierSettings.AssignTargetAssembly(t.Assembly);
+
+        // Somewhat hacky, Verify does this through Extensive orchestration
+        // in the test Framework specific libraries. We Just get the filename :S
+        var typeName = Path.GetFileNameWithoutExtension(sourceFile); 
+
+        // This isn't used, it just needs to be not null.
         var pathInfo = new PathInfo();
 
         if (t.FullName == null)

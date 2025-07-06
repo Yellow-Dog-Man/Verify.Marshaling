@@ -20,19 +20,20 @@ public sealed class TestMarshalingSizes
     [DataRow(UnmanagedType.I8, 8)]
     [DataRow(UnmanagedType.U8, 8)]
     [DataRow(UnmanagedType.R8, 8)]
-    //[DataRow(UnmanagedType.LPStr, 1)]
-    //[DataRow(UnmanagedType.LPTStr, 1)]
+    //[DataRow(UnmanagedType.LPStr, 1)] // Not Implemented
+    //[DataRow(UnmanagedType.LPTStr, 1)] // Not Implemented
     [DataRow(UnmanagedType.ByValTStr, 1)]
-    [DataTestMethod]
+    [TestMethod]
     public void TestUnmanagedTypeSizes(UnmanagedType type, int expectedSize)
     {
         Assert.AreEqual(expectedSize, type.GetSize());
     }
 
-    // [DataRow] needs constants, IntPtr is not a constant
+
     [TestMethod]
     public void TestComplexUnmanagedTypes()
     {
+        // [DataRow] needs constants, IntPtr is not a constant
         Assert.AreEqual(IntPtr.Size, UnmanagedType.FunctionPtr.GetSize());
         Assert.AreEqual(IntPtr.Size, UnmanagedType.SysInt.GetSize());
         Assert.AreEqual(UIntPtr.Size, UnmanagedType.SysUInt.GetSize());
@@ -47,7 +48,7 @@ public sealed class TestMarshalingSizes
 
     [DataRow(5, UnmanagedType.ByValTStr, 5)]
     [DataRow(1, UnmanagedType.ByValTStr, 1)]
-    [DataTestMethod]
+    [TestMethod]
     public void TestVariableLengthSizes(int expectedSize, UnmanagedType type, int size)
     {
         var m = new MarshalAsAttribute(type);

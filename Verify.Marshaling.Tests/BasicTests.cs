@@ -12,7 +12,7 @@ public partial class BasicTests: VerifyBase
     [DataRow(typeof(StringStruct))]
     [DataRow(typeof(ArrayStruct))]
     [DataRow(typeof(NoAttributeStruct))]
-    [DataTestMethod]
+    [TestMethod]
     public async Task TestMarshalableTypes(Type t)
     {
         //await Verify(t);
