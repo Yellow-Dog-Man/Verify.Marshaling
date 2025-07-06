@@ -1,5 +1,0 @@
-﻿{
-  FieldName: NoAttributeStruct,
-  Size: 1,
-  Type: struct
-}
