@@ -1,0 +1,19 @@
+name: .NET Build
+
+on:
+  push:
+    paths-ignore:
+      - '**/*.md'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+
+jobs:
+  dotnet-build:
+    uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-build.yml
+    with:
+      dotnet_project: Verify.Marshaling
