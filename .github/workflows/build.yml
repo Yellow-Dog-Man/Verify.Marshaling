@@ -14,6 +14,6 @@ on:
 
 jobs:
   dotnet-build:
-    uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-build.yml@main
+    uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-build.yml@v1
     with:
       dotnet_project: Verify.Marshaling
