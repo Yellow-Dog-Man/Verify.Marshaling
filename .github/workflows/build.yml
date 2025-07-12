@@ -19,3 +19,5 @@ jobs:
       dotnet_project: Verify.Marshaling
       artifact_name: binary
       dotnet_build_path: '**/bin/**/**/*.dll'
+  dotnet-test:
+    uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-tests.yml@main
