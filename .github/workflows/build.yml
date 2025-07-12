@@ -17,5 +17,5 @@ jobs:
     uses: Yellow-Dog-Man/composite-actions-templates/.github/workflows/generic-dotnet-build.yml@main
     with:
       dotnet_project: Verify.Marshaling
-      artifact_name: nuget-package
+      artifact_name: binary
       dotnet_build_path: '**/bin/**/**/*.dll'
