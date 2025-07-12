@@ -18,3 +18,4 @@ jobs:
     with:
       dotnet_project: Verify.Marshaling
       artifact_name: nuget-package
+      dotnet_build_path: '**/bin/**/**/*.dll'
