@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Company>Yellow Dog Man Studios</Company>
     <Authors>Yellow Dog Man Studios</Authors>
-    <PackageId>Verify.Marshaling</PackageId>
+    <PackageId>YellowDogMan.Verify.Marshaling</PackageId>
     <Description>Enable snapshot testing of C# Interop/PInvoke Struct Marshaling</Description>
     <Copyright>Copyright (c) Yellow Dog Man Studios s.r.o.</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
