@@ -1,4 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- NuGet Meta-Data -->
+  <PropertyGroup>
+    <Company>Yellow Dog Man Studios</Company>
+    <Authors>Yellow Dog Man Studios</Authors>
+    <PackageId>Verify.Marshaling</PackageId>
+    <Description>Enable snapshot testing of C# Interop/PInvoke Struct Marshaling</Description>
+    <Copyright>Copyright (c) Yellow Dog Man Studios s.r.o.</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Yellow-Dog-Man/Verify.Marshaling</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectURL>https://github.com/Yellow-Dog-Man/Verify.Marshaling</PackageProjectURL>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+     <PackageTags>Testing, Verify, Snapshot, Structs, PInvoke, Interop, Marshaling</PackageTags>
+    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <LangVersion>latest</LangVersion>
@@ -7,7 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<InternalsVisibleTo Include="$(AssemblyName).Tests" />
+	  <InternalsVisibleTo Include="$(AssemblyName).Tests" />
   </ItemGroup>
 
   <ItemGroup>
