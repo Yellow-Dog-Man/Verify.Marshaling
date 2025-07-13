@@ -1,0 +1,50 @@
+﻿{
+  FieldName: BigStruct,
+  Size: 176,
+  Nested: [
+    {
+      FieldName: Test,
+      Size: 4,
+      Type: Int32
+    },
+    {
+      FieldName: TestF,
+      Size: 4,
+      Offset: 4,
+      Type: Single
+    },
+    {
+      FieldName: TestA,
+      Size: 4,
+      Offset: 8,
+      Type: Int32
+    },
+    {
+      FieldName: TestB,
+      Size: 4,
+      Offset: 12,
+      Type: Int32
+    },
+    {
+      FieldName: SimpleStruct,
+      Size: 160,
+      Offset: 16,
+      Count: 20,
+      Nested: [
+        {
+          FieldName: Test,
+          Size: 4,
+          Type: Int32
+        },
+        {
+          FieldName: TestF,
+          Size: 4,
+          Offset: 4,
+          Type: Single
+        }
+      ],
+      Type: array
+    }
+  ],
+  Type: struct
+}

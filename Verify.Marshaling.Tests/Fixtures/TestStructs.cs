@@ -51,12 +51,44 @@ public struct StringStruct
     public string B;
 }
 
-// Bad Structs
+public struct BigStruct
+{
+    [MarshalAs(UnmanagedType.I4)]
+    public int Test;
+
+    [MarshalAs(UnmanagedType.R4)]
+    public float TestF;
+
+    [MarshalAs(UnmanagedType.I4)]
+    public int TestA;
+
+    [MarshalAs(UnmanagedType.I4)]
+    public int TestB;
+
+    // 20 SIMPLE STRUCTS
+    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
+    public SimpleStruct[] cmdSet;
+}
+
+#region Bad Structs
+
+/// <summary>
+/// Automatic layout struct. NOT SUPPORTED.
+/// </summary>
 [StructLayout(LayoutKind.Auto)]
-public struct AutoStruct { }
+public struct AutoStruct { } 
+
+/// <summary>
+/// Has no attribute, treated as sequential.
+/// </summary>
 public struct NoAttributeStruct { } // NO ATTRIBUTE!
 
+/// <summary>
+/// Strings without a marshalas, cannot be marshaled correctly.
+/// </summary>
 [StructLayout(LayoutKind.Sequential)]
 public struct BadStringStruct {
     public string A; // No Marshal As
 }
+#endregion
+
