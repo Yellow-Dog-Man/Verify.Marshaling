@@ -3,8 +3,9 @@
 using Verify.Marshaling.Tests.Fixtures;
 namespace Verify.Marshaling.Tests;
 
+[UsesVerify]
 [TestClass]
-public partial class BasicTests: VerifyBase
+public partial class BasicTests
 {
     [DataRow(typeof(CMP_CompressOptions))]
     [DataRow(typeof(SimpleStruct))]
@@ -12,10 +13,10 @@ public partial class BasicTests: VerifyBase
     [DataRow(typeof(StringStruct))]
     [DataRow(typeof(ArrayStruct))]
     [DataRow(typeof(NoAttributeStruct))]
+    [DataRow(typeof(BigStruct))]
     [TestMethod]
     public async Task TestMarshalableTypes(Type t)
     {
-        //await Verify(t);
         await VerifyMarshaling.VerifyMemoryLayout(t);
     }
 
