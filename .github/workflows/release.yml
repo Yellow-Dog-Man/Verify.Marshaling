@@ -16,4 +16,4 @@ jobs:
     - name: Pack
       run:  dotnet pack -c Release Verify.Marshaling -p:Version=${{ env.VERSION }}
     - name: Nuget Publish
-      run: dotnet nuget push Verify.Marshaling -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push **/bin/Release/*.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
