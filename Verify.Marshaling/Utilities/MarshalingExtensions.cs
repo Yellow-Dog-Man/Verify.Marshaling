@@ -9,23 +9,28 @@ internal static class MarshalingExtensions
         var type = attribute.Value;
         switch (type)
         {
+            // Strings
             case UnmanagedType.LPStr:
                 return (GetSize(type) * attribute.SizeConst) + 1;
+            case UnmanagedType.ByValTStr:
+                return (GetSize(type) * attribute.SizeConst);
+
+            // Arrays
+            case UnmanagedType.ByValArray:
+            case UnmanagedType.LPArray:
+                if (attribute.ArraySubType == 0)
+                    throw new InvalidOperationException($"Expected ArraySubType when getting size of {type}");
+                return (GetSize(attribute.ArraySubType) * attribute.SizeConst);
+            
+            // Not Implemented
+            case UnmanagedType.SafeArray:
             case UnmanagedType.LPWStr:
             case UnmanagedType.LPTStr:
             case UnmanagedType.BStr:
                 //TODO: how many bytes are these?
                 throw new NotImplementedException($"{type} is not supported or unknown.");
-
-            case UnmanagedType.ByValTStr:
-                return (GetSize(type) * attribute.SizeConst);
-            case UnmanagedType.ByValArray:
-                return (GetSize(attribute.ArraySubType) * attribute.SizeConst);
-            case UnmanagedType.SafeArray:
-                return (GetSize(attribute.ArraySubType) * attribute.SizeConst);
-
             case UnmanagedType.Struct:
-                throw new NotImplementedException($"Nested not supported");
+                throw new NotImplementedException($"Nested structs are not supported");
             default:
                 return GetSize(attribute.Value);
         }
@@ -37,7 +42,6 @@ internal static class MarshalingExtensions
             case UnmanagedType.I1:
             case UnmanagedType.U1:
                 return 1;
-
             case UnmanagedType.I2:
             case UnmanagedType.U2:
                 return 2;
@@ -63,7 +67,7 @@ internal static class MarshalingExtensions
                 return 1;
         }
 
-        throw new NotImplementedException($"{unmanagedType} is not supported or unknown.");
+        throw new NotImplementedException($"{Enum.GetName(unmanagedType)} is not supported or unknown.");
     }
 }
 
