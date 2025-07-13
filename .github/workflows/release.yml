@@ -1,0 +1,19 @@
+name: Publish
+
+# When a release is published
+on:
+  release:
+    types: [published]
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Get version
+      run: |
+        echo "VERSION=${{ github.event.release.tag_name }}" >> $env:GITHUB_ENV
+        echo "Building with ${{ env.VERSION }}"
+    - name: Pack
+      run:  dotnet pack -c Release Verify.Marshaling -p:Version=${{ env.VERSION }}
+    - name: Nuget Publish
+      run: dotnet nuget push Verify.Marshaling -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
