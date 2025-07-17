@@ -60,6 +60,10 @@ That can be saved as a part of your Snapshot collection, in the same way as [Ver
 
 If you're new to Verify, we recommend checking out the [Verify getting started wizard](https://github.com/VerifyTests/Verify/blob/main/docs/wiz/readme.md). 
 
+## Contributing
+
+If you have any suggestions or improvements, please feel free to open an issue or submit a pull request. We're new to making extensions for Verify and would love to improve things.
+
 ## Future Plans
 
 ### Diagrams
