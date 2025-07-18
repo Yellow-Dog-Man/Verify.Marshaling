@@ -74,6 +74,9 @@ Which should produce an output like:
 ```
 That can be saved as a part of your Snapshot collection, in the same way as [Verify](https://github.com/VerifyTests/Verify)
 
+## Examples
+We make heavy use of this in [Compressonator.NET](https://github.com/Yellow-Dog-Man/Compressonator.NET) to [Verify communication](https://github.com/Yellow-Dog-Man/Compressonator.NET/tree/main/Compressonator.NET.Tests/Marshaling) with the [Native Library](https://github.com/Yellow-Dog-Man/Compressonator).
+
 ## Contributing
 
 If you have any suggestions or improvements, please feel free to open an issue or submit a pull request. We're new to making extensions for Verify and would love to improve things.
