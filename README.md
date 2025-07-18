@@ -1,5 +1,10 @@
 # Verify.Marshaling
 
+[![Nuget downloads](https://img.shields.io/nuget/v/YellowDogMan.Verify.Marshaling.svg)](https://www.nuget.org/packages/YellowDogMan.Verify.Marshaling)
+[![Nuget](https://img.shields.io/nuget/dt/YellowDogMan.Verify.Marshaling)](https://www.nuget.org/packages/YellowDogMan.Verify.Marshaling)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Yellow-Dog-Man/Verify.Marshaling/build.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE.txt)
+
 When performing C# Interop/PInvoke with C++, you sometimes need to send structs from managed memory, to unmanaged memory.
 
 In these cases .NET will perform Marshaling for you on your data. You can [customize this marshaling](https://learn.microsoft.com/en-us/dotnet/framework/interop/marshalling-classes-structures-and-unions) with attributes.
@@ -8,7 +13,21 @@ Verify.Marshaling allows you to perform Snapshot Testing on the memory layouts o
 
 This can be useful in order to compare them to their C++ equivalents, or to lock their layout between versions of a library.
 
-## Example
+## Setup
+
+### Setup Verify
+
+If you're new to Verify, we recommend checking out the [Verify getting started wizard](https://github.com/VerifyTests/Verify/blob/main/docs/wiz/readme.md). 
+
+### Install Package
+
+Install [Verify.Marshaling with NuGet](https://www.nuget.org/packages/YellowDogMan.Verify.Marshaling):
+
+```
+Install-Package YellowDogMan.Verify.Marshaling
+```
+
+### Use
 
 Given a struct:
 ```cs
@@ -54,11 +73,6 @@ Which should produce an output like:
 }
 ```
 That can be saved as a part of your Snapshot collection, in the same way as [Verify](https://github.com/VerifyTests/Verify)
-
-
-## Setup
-
-If you're new to Verify, we recommend checking out the [Verify getting started wizard](https://github.com/VerifyTests/Verify/blob/main/docs/wiz/readme.md). 
 
 ## Future Plans
 
