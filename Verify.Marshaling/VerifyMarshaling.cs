@@ -21,16 +21,22 @@ public static class VerifyMarshaling
 
         InnerVerifier.ThrowIfVerifyHasBeenRun();
 
-        //TODO: we don't actually need to do anything here, but this keeps it in the VerifyTests namespace.
+        //TODO: we don't actually need to do anything here, but this keeps it in the VerifyTests namespace. See other TODO's in this file.
     }
+
+    /// <summary>
+    /// Given a C# type, validate its struct memory layout using Verify.
+    /// </summary>
+    /// <param name="t">Target type</param>
+    /// <param name="settings">VerifySettings to apply if needed</param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    //TODO: Validate this approach. This approach is a little hacky, but its how we "got things working" PRs to improve it are welcome.
+    //TODO: Should we restrict the Typing of t? To just classes and structs?
     public static SettingsTask VerifyMemoryLayout(Type t, VerifySettings? settings = null, [CallerFilePath] string sourceFile = "", [CallerMemberName] string memberName = "")
     {
-        // TODO: This feels like a massive hack, but technicallly works quite well. I ran out of energy!
-
-        VerifierSettings.AssignTargetAssembly(t.Assembly);
-
         // Somewhat hacky, Verify does this through Extensive orchestration
-        // in the test Framework specific libraries. We Just get the filename :S
+        // in the test Framework specific libraries. We just need to get the filename.
         var typeName = Path.GetFileNameWithoutExtension(sourceFile); 
 
         // This isn't used, it just needs to be not null.
